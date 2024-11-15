@@ -1,0 +1,98 @@
+run:
+  # max analyzer count
+  concurrency: 4
+  # check tests check
+  tests: true
+  timeout: 5m
+  # skip specific folders
+  skip-dirs:
+    - vendor
+  # skip specific files
+  skip-files:
+    - ".*\\.pb\\.go"
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - unused
+    - gosimple
+    - structcheck
+    - typecheck
+    - varcheck
+    - ineffassign
+    - deadcode
+    - gofmt
+    - goimports
+    - misspell
+    - unconvert
+    - goconst
+    - gocyclo
+    - nakedret
+    - unparam
+    - dupl
+    - scopelint
+    - prealloc
+    - gocritic
+    - godot
+    - depguard
+    - whitespace
+    - gocognit
+    - lll
+    - gomnd
+    - gosec
+    - nolintlint
+    - asasalint
+    - bodyclose
+    - exportloopref
+    - funlen
+    - stylecheck
+    - thelper
+    - wrapcheck
+    - wsl
+    - shadow
+
+linters-settings:
+  gocyclo:
+    min-complexity: 15
+  lll:
+    line-length: 120
+    tab-width: 1
+    ignore-comments: true
+  dupl:
+    threshold: 100
+  gofmt:
+    simplify: true
+  goconst:
+    min-len: 3
+    min-occurrences: 2
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+  nakedret:
+    max-func-lines: 30
+  prealloc:
+    min-len: 3
+  gomnd:
+    settings:
+      mnd:
+        ignore-numbers: [0, 1, -1]
+  gosec:
+    excludes:
+      - G304
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - errcheck
+    - linters:
+        - dupl
+      text: "is duplicated"
+    - linters:
+        - gocyclo
+      text: "function is too complex"

@@ -1,0 +1,23 @@
+# IDE
+.idea
+.vscode
+
+# config
+.env
+
+# binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+bin/
+
+# tests binary, built with `go tests -c`
+*.test
+
+# output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# dependency directories (remove the comment below to include it)
+vendor/
+configs/
